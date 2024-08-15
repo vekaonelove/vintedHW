@@ -1,34 +1,12 @@
 package vintedHW.main;
-
-import vintedHW.entity.Purchase;
-import vintedHW.reader.PurchaseFileReader;
-import vintedHW.service.DiscountService;
-import vintedHW.service.impl.DiscountServiceImpl;
-
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Purchase> purchases = PurchaseFileReader.parsePurchases("/input.txt");
-        DiscountService discountService = new DiscountServiceImpl();
-        discountService.calculateDiscounts(purchases);
-
-        List<String> input = readfromfile();
-        List<String> output;
-        State currentState = new State();
-        input.foreach()
-/*
-       while() {
-           Purchase purchase = parser.parseLine();
-           if(purchase == null) {
-               writer.saveIgnoredLine(purchaseString);
-           }
-           PurchaseDelivery purchaseWithDiscount = service.calculate(purchase, currentState;
-
-              currentState.addPurchase(purchaseWithDiscount);
- ArrayList<Purchase> purchasesWithDiscount
-           writer.saveLine(purchaseWithDiscount);
-       }
-        output()*/
+        String filePath = "/input.txt";
+        List<String> result = Processor.process(filePath);
+        System.out.println(result.stream().collect(Collectors.joining("\n")));
     }
+
 }
